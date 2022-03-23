@@ -95,3 +95,61 @@ N - noturno""")
 
 #ex 11
 def tabajara():
+    salario = float(input())
+    salario_anterior = salario
+
+
+    #aumento
+    if salario <= 280.0:
+        salario += salario*0.2
+        p = '20%'
+    elif 280.0 < salario <= 700.0:
+        salario += salario*0.15
+        p = '15%'
+    elif 700.0 < salario <= 1500.0:
+        salario += salario*0.1
+        p = '10%'
+    elif salario > 1500.0:
+        salario += salario*0.05
+        p = '5%'
+    else:
+        p = '0%'
+
+    v = salario - salario_anterior
+
+    return print("""
+    SALÁRIO ANTERIOR:{}:.2f
+    COM AJUSTE SALARIAL DE {}
+    VALOR DO AUMENTO: {}:.2f
+    
+    NOVO SALARIO: {}:.2f
+    """.format(salario_anterior, p, v, salario))
+
+#ex 12
+def folha_de_pgmt():
+    valor = float(input("Qual valor por hora?"))
+    horas = int(input("Quantas horas trabalhadas?"))
+    bruto = valor*horas
+    sindicato = 0.03 * bruto
+    fgts = 0.11 * bruto
+    inss = 0.1*bruto
+    if bruto <= 900:
+        ir = 0
+    elif bruto <= 1500:
+        ir = bruto * 0.05
+    elif bruto <= 2500:
+        ir = bruto * 0.1
+    elif bruto > 2500:
+        ir = bruto * 0.2
+
+    totaldesc, liquido = (sindicato+inss+ir), (bruto - totaldesc)
+    p_ir = int((bruto / ir) * 100)
+    print("""
+    (+) SALARIO BRUTO: ({} * {}) = {}:.2f
+    (-) IR ({}%) : {}:.2f
+    (-) INSS (10%) : {}:.2f
+    (-) SINDICATO (3%) : {}:.2f
+    (-) FGTS (10%) : {}:.2f
+    (=) Total de descontos : {}:.2f
+    -------------------------------
+    SALÁRIO LÍQUIDO: {}:.2F""".format(valor, horas, bruto, p_ir, ir, inss, sindicato,fgts,totaldesc,liquido)
