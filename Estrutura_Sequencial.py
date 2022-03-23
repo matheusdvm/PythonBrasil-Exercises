@@ -2,6 +2,31 @@ import math as m
 
 """CONSTRUIR UM PROJETO QUE UNA TODOS OS EXERCICIOS DO PYTHON BRASIL EM UM SÓ CANTO"""
 
+def qual_exercicio():
+	print("""Qual exercicio pretende realizar?""")
+	n_ex = int(input())
+	return n_ex
+
+def aviso_executando_ex(n_ex):
+	return print('\n'*2,"*"*40,'\n',"Executando o EX nº {}".format(n_ex),'\n',"*"*40,'\n'*2)
+
+def qual_linguagem():
+	print("Dentre as linguas abaixo:\n")
+	print("""01 - PORTUGUES
+	02 - ALEMAO
+	03 - ESPANHOL
+	04 - FRANCES
+	05 - TURCO
+	Outros - INGLÊS\n""")
+	lingua=int(input("Qual lingua pretende dar print? "))
+	return lingua
+
+def qual_numero():
+	return float(input("Qual número pretende imprimir? "))
+
+def que_numero_somar():
+	return float(input("NÚMERO: "))
+
 """EX 01"""
 def hello_world(language):
     if language == 1:

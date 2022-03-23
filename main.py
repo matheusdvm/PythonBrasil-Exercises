@@ -32,30 +32,6 @@ def logo():
      |               `-'                  made by:    matheusdvm   |
      '-------------------------------------------------------------'""")
 
-def qual_exercicio():
-	print("""Qual exercicio pretende realizar?""")
-	n_ex = int(input())
-	return n_ex
-
-def aviso_executando_ex(n_ex):
-	return print('\n'*2,"*"*40,'\n',"Executando o EX nº {}".format(n_ex),'\n',"*"*40,'\n'*2)
-
-def qual_linguagem():
-	print("Dentre as linguas abaixo:\n")
-	print("""01 - PORTUGUES
-	02 - ALEMAO
-	03 - ESPANHOL
-	04 - FRANCES
-	05 - TURCO
-	Outros - INGLÊS\n""")
-	lingua=int(input("Qual lingua pretende dar print? "))
-	return lingua
-
-def qual_numero():
-	return float(input("Qual número pretende imprimir? "))
-
-def que_numero_somar():
-	return float(input("NÚMERO: "))
 
 def main():
 	while True:
@@ -64,16 +40,16 @@ def main():
 		aviso_executando_ex(numero_exercicio)
 
 		if numero_exercicio == 1:
-			l = qual_linguagem()
+			l = E.qual_linguagem()
 			E.hello_world(l)
 
 		elif numero_exercicio == 2:
-			n = qual_numero()
+			n = E.qual_numero()
 			E.number_is(n)
 
 		elif numero_exercicio == 3:
-			a = que_numero_somar()
-			b = que_numero_somar()
+			a = E.que_numero_somar()
+			b = E.que_numero_somar()
 			c = E.sum_numbers(a,b)
 			print("{} + {} = {}".format(a,b,c))
 
