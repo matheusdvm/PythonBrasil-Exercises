@@ -368,7 +368,23 @@ def ex24():
 
 #ex25
 def ex25():
-    pass
+
+    print("RESPONDA AS PERGUNTAS ABAIXO\n[1] = SIM\n[2] = NÃO")
+    a = int(input("Telefonou para a vítima? "))
+    b = int(input("Esteve no local do crime? " ))
+    c = int(input("Mora perto da vitima? "))
+    d = int(input("Devia para a vitima? "))
+    e = int(input("Já trabalhou com a vitima? "))
+
+    soma = a + b + c + d + e
+    if soma == 2:
+        return print("A PESSOA É SUSPEITA")
+    elif 3<=soma<=4:
+        return print("A PESSOA É CÚMPLICE")
+    elif soma == 5:
+        return print("A PESSOA É ASSASSINO")
+    else:
+        return print("A PESSOA É INOCENTE")
 
 #ex26
 def ex26():
