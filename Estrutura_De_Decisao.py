@@ -1,3 +1,5 @@
+from math import sqrt
+
 #EX 01
 def ex1():
     a,b = (float(x) for x in input().split())
@@ -221,3 +223,101 @@ def ex15():
 
 #ex16
 def ex16():
+    a = float(input("Adicione a variavel A da equação de 2o grau Ax2 + Bx + C\n"))
+    if a == 0:
+        return print("Se A = 0 a equação não é do segundo grau")
+
+    b = float(input("Adicione a variavel B da equação: "))
+    c = float(input("Adicione a variavel C na equação: "))
+
+    delta = b**2 - 4 * a * c
+    r1 = (sqrt(delta) - b) / (2 * a)
+    r2 = (-sqrt(delta) - b) / (2 * a)
+
+    if delta<0:
+        return print("Delta < 0: a equação não possui valores reais")
+    elif delta == 0:
+        return print("Delta = 0: a equação possui apenas uma raiz\nRAIZ: {:.2f}".format(r1))
+    else:
+        return print("Delta > 0: a equação possui duas raizes,\n RAIZ 1: {:.2f}\nRAIZ 2: {:.2f}".format(r1,r2))
+
+#ex17
+def ex17():
+    ano = int(input("Insira um ano: "))
+    print("\nVerificando se é bissexto!\n\n")
+
+    if ano%4 == 0 and ano%100 !=0:
+        if ano%400 == 0:
+            return print("É BISSEXTO")
+        elif ano<400:
+            return print("É BISSEXTO")
+        else:
+            return print("NÃO É BISSEXTO")
+    else:
+        return print("NÃO É BISSEXTO")
+
+#OUTRA MANEIRA DE RESOLVER O EXERCICIO UTILIZANDO CALENDAR(ISLEAP)
+def ex172():
+    from calendar import isleap
+    ano = int(input("INSIRA UM ANO: "))
+
+    if isleap(ano):
+        return print("É BISSEXTO")
+    else:
+        return print("NÃO É BISSEXTO")
+
+#ex18
+def ex18():
+    data = str(input("insira uma data no formato DD/MM/AAAA\n"))
+    dia,mes,ano = (data.split('/'))
+    lista = [31,28,31,30,31,30,31,31,30,31,30,31]
+    if len(dia) == 2 and len(mes) == 2 and len(ano)==4:
+        dia_int,mes_int,ano_int = int(dia), int(mes), int(ano)
+        if 1<=mes_int<=12 and ano_int!=0 and 1<=dia_int<=lista[mes_int-1]:
+                return print("{} é uma data valida".format(data))
+        else:
+            return print("{} NÃO é uma data valida".format(data))
+    else:
+        return print("{} NÃO é uma data valida".format(data))
+
+#ex19
+def ex19():
+    pass
+
+#ex20
+def ex20():
+    pass
+
+#ex21
+def ex21():
+    pass
+
+#ex22
+def ex22():
+    pass
+
+#ex23
+def ex23():
+    pass
+
+#ex24
+def ex24():
+    pass
+
+#ex25
+def ex25():
+    pass
+
+#ex26
+def ex26():
+    pass
+
+#ex27
+def ex27():
+    pass
+
+#ex28
+def ex28():
+    pass
+
+
