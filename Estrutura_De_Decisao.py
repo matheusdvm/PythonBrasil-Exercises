@@ -306,7 +306,24 @@ def ex20():
 
 #ex21
 def ex21():
-    pass
+    while True:
+        saque = int(input("Caro usuario, digite abaixo o valor a ser sacado:\n"))
+        if 10<=saque<=600:
+            break
+        else:
+            print("Por Favor, Digite um valor entre 10 e 600 reais.")
+
+    nota100, saque2 = saque//100, saque%100
+    nota50, saque2 = saque2//50, saque2%50
+    nota10, saque2 = saque2//10, saque2%10
+    nota5, saque2 = saque2//5, saque2%5
+    nota1, saque2 = saque2//1, saque2%1
+    print("""PARA SACAR O VALOR DE R${:.2f} SÃO NECESSÁRIAS AS SEGUINTES QUANTIAS DE CEDULAS\n
+    {} notas de 1 real
+    {} notas de 5 reais
+    {} notas de 10 reais
+    {} notas de 50 reais
+    {} notas de 100 reais""".format(saque, nota1, nota5, nota10, nota50, nota100))
 
 #ex22
 def ex22():
