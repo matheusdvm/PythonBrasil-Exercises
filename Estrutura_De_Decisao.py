@@ -381,7 +381,7 @@ def ex24():
 
         else:
             break
-    return
+    return None
 
 #ex25
 def ex25():
@@ -405,14 +405,165 @@ def ex25():
 
 #ex26
 def ex26():
-    pass
+    combustivel = str(input("[A] - Alcool $1,90 \n [G] - Gasolina $2,50\nDigite o código correspondente do combustivel desejado:  ")).lower()
+    quantia = float(input("Qual é a quantidade de litros de combustivel?\n"))
+
+    if combustivel == 'a':
+        combustivel = "Alcool"
+        total = quantia * 1.90
+        if 0<quantia<=20:
+            total -= total*0.03  #3% de desconto
+        elif quantia>20:
+            total -= total*0.05
+        else:
+            total = 0.0
+
+    elif combustivel =="g":
+        combustivel = "Gasolina"
+        total = quantia * 2.50
+        if 0 < quantia <= 20:
+            total -= total*0.04
+        elif quantia > 20:
+            total -= total * 0.06
+        else:
+            total = 0.0
+
+    else:
+        total = 0.0  #adicionando o total como 0.0 para evitar erros no terminal
+
+    print("{} litros de {} custam ${:.2f} com desconto".format(quantia, combustivel, total))
 
 #ex27
 def ex27():
-    pass
+    print("""
+    Até 5kg:
+    Morango ---> $2,50
+    Maça    ---> $1,80
+    
+    Acima de 5kg:
+    Morango ---> $2,20
+    Maça    ---> $1,50
+    """)
+
+    morango = float(input("Insira o peso de MORANGO desejado: "))
+    maca = float(input("Insira o peso de MAÇA desejado: "))
+    print("\n")
+
+    if morango>5:
+        p_morango = 2.2
+    elif 0<=morango<=5:
+        p_morango = 2.5
+    else:
+        p_morango = 0
+
+    if maca>5:
+        p_maca = 1.5
+    elif 0<maca<=5:
+        p_maca = 1.8
+    else:
+        p_maca = 0
+
+    v_morango = morango * p_morango
+    v_maca = maca * p_maca
+    valor_total = v_morango + v_maca
+
+    peso_total = maca + morango
+
+    if peso_total > 8.0 or valor_total > 25.00:
+        valor_total -= valor_total*0.1
+
+    print("""CESTA DE COMPRAS:
+    {:.2f} KGs de maçã    -----> ${:.2f}
+    {:.2f} KGs de morango -----> ${:.2f}
+    |-----------------------------------|
+    VALOR TOTAL  --------------> ${:.2f}
+    """.format(maca, v_maca, morango, v_morango, valor_total))
 
 #ex28
 def ex28():
-    pass
+    print("""PROMOÇÃO CARNE BARATINHA*
+    
+    Até 5kg:
+    [F] File Duplo  ---> $4,90
+    [A] Alcatra:    ---> $5,90
+    [P] Picanha:    ---> $6,90
+    
+    Acima de 5kg:
+    [F] File Duplo: ---> $5,80
+    [A] Alcatra:    ---> $6,80
+    [P] Picanha:    ---> $7,80
+    
+    *é permitida a retirada de apenas um tipo de carne devido à procura da promoção
+    """)
 
+    tipo = input("Digite o codigo correspondente ao tipo de carne desejada\n").lower()
+    quantia = float(input("Quantos kilogramas deseja adquirir? "))
 
+    if tipo == 'f':
+        tipo = 'Filé Duplo'
+        if quantia > 5:
+            preco = 5.8
+        elif 0<quantia<=5:
+            preco = 4.9
+        else:
+            preco = 0.0
+    elif tipo == 'a':
+        tipo = "Alcatra"
+        if quantia > 5:
+            preco = 6.8
+        elif 0<=quantia<=5:
+            preco = 5.9
+        else:
+            preco = 0.0
+    elif tipo == 'p':
+        tipo = "Picanha"
+        if quantia > 5:
+            preco = 7.8
+        elif 0 <= quantia <= 5:
+            preco = 6.9
+        else:
+            preco = 0.0
+    else:
+        preco = 0.0
+        tipo = "Invalido"
+
+    cartao = int(input("A compra será realizada no Cartão Tabajara que concede 5% de desconto?\n[1] - SIM ou [2] NÃO  : "))
+
+    total = quantia * preco
+    if cartao == 1:
+        desconto = total*0.05
+        pgmt = 'CARTÃO TABAJARA'
+    else:
+        desconto = 0.0
+        while True:
+            p = int(input("""
+            Então, como será realizado o pagamento? 
+            __________________________________________
+            [1] = DINHEIRO
+            [2] = CARTAO DE CREDITO
+            [3] = CARTAO DE DEBITO
+            [4] = PIX
+            __________________________________________
+            Por favor digitar o código correspondente: """))
+            if p == 1:
+                pgmt = "DINHEIRO"
+                break
+            elif p == 2:
+                pgmt = "CARTAO DE CREDITO"
+                break
+            elif p == 3:
+                pgmt = "CARTAO DE DEBITO"
+                break
+            elif p == 4:
+                pgmt = "PIX"
+                break
+            else:
+                print("\nPOR FAVOR DIGITAR O CODIGO CORRESPONDENTE CORRETAMENTE\n\n")
+
+    print("""\n\nCUPOM FISCAL:
+    {:.2f} KGs de {}  -----> ${:.2f}
+    DESCONTO  -------------> ${:.2f}
+    
+    VALOR A PAGAR ---------> ${:.2f}
+    FORMA DE PAGAMENTO: {}
+    """.format(quantia, tipo, total, desconto, (total - desconto), pgmt))
