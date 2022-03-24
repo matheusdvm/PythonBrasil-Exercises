@@ -282,11 +282,27 @@ def ex18():
 
 #ex19
 def ex19():
-    pass
+    while True:
+        x = int(input("Insira um numero menor que 1000\n"))
+        if 0<=x<1000:
+            break
+
+    c,d,u = 0,0,0
+    c = x//100
+    d = (x%100)//10
+    u = int(str(x)[-1])
+    return print("{} = {} centenas, {} dezenas, {} unidades.".format(x,c,d,u))
 
 #ex20
 def ex20():
-    pass
+    n1,n2,n3 = (float(x) for x in input("Insira as três notas parciais separadas por espaço\n").split())
+    media = (n1+n2+n3)/3
+    if media == 10.0:
+        return print("APROVADO COM DISTINÇÃO")
+    elif media < 7.0:
+        return print("REPROVADO")
+    elif 7 <= media < 10:
+        return print("APROVADO")
 
 #ex21
 def ex21():
@@ -294,15 +310,61 @@ def ex21():
 
 #ex22
 def ex22():
-    pass
+    x = int(input("Insira um numero inteiro: "))
+    if x%2==0:
+        return print("{} É PAR".format(x))
+    else:
+        return print("{} É IMPAR".format(x))
 
 #ex23
 def ex23():
-    pass
+    n = float(input("Insira um numero: "))
+    if n == round(n):
+        return print("{} É INTEIRO".format(n))
+    else:
+        return print("{} É DECIMAL".format(n))
 
 #ex24
 def ex24():
-    pass
+    a,b = (float(x) for x in input("Informe dois numeros: ").split())
+    while True:
+        escolha = str(input("Qual operação deseja realizar?\n[a]-Impar ou Par\n[b] - Positivo ou Negativo\n[c] - Inteiro ou Decimal")).lower()
+        if escolha == 'a':
+            if a%2==0:
+                print("{} é par".format(a))
+            else:
+                print("{} é impar".format(a))
+
+            if b%2 == 0:
+                print("{} é par".format(b))
+            else:
+                print("{} é impar".format(b))
+
+        elif escolha == 'b':
+            if a>=0:
+                print("{} é positivo".format(a))
+            else:
+                print("{} é negativo".format(a))
+
+            if b>=0:
+                print("{} é positivo".format(b))
+            else:
+                print("{} é negativo".format(b))
+
+        elif escolha == 'c':
+            if a == round(a):
+                print("{} É INTEIRO".format(a))
+            else:
+                print("{} É DECIMAL".format(a))
+
+            if b == round(b):
+                print("{} É INTEIRO".format(b))
+            else:
+                print("{} É DECIMAL".format(b))
+
+        else:
+            break
+    return
 
 #ex25
 def ex25():
