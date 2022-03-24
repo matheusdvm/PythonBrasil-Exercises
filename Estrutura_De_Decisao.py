@@ -1,5 +1,5 @@
 #EX 01
-def maior():
+def ex1():
     a,b = (float(x) for x in input().split())
     if a>b:
         return print(a)
@@ -10,7 +10,7 @@ def maior():
 
 #EX 02
 
-def neg_or_pos():
+def ex2():
     x = float(input())
     if x >=0:
         return print("POSITIVE")
@@ -19,7 +19,7 @@ def neg_or_pos():
 
 #EX 03
 
-def f_or_m():
+def ex3():
     fm = str(input()).lower()
     if fm == "f":
         return print("F - Feminino")
@@ -29,7 +29,7 @@ def f_or_m():
         return print("Sexo Inválido")
 
 #EX 04
-def v_or_c():
+def ex4():
     vc = str(input()).lower()
     vogais, consoantes = "aeiou", "bcdfghjklmnpqrstvwxyz"
     if vc in vogais:
@@ -40,9 +40,9 @@ def v_or_c():
         return print("OUTROS")
 
 #ex 05
-def passou_media():
+def ex5():
     n1,n2 = (float(x) for x in input().split())
-    media = (n1+n2)/2e
+    media = (n1+n2)/2
     if media==10:
         return print("aprovado com distinção".capitalize())
     elif media < 7:
@@ -53,32 +53,32 @@ def passou_media():
         return print("Input inválido")
 
 #ex 06  ajustar para if e elif até ex 08
-def maior2():
+def ex6():
     a,b,c = (float(x) for x in input().split())
     lista = [a,b,c]
-    return print(lista.max())
+    return print(max(lista))
 
 #ex 07
-def maior3():
+def ex7():
     a,b,c = (float(x) for x in input().split())
     lista = [a,b,c]
-    return print("MAIOR: {}\nMENOR: {}\n".format(lista.max(), lista.min()))
+    return print("MAIOR: {:.2f}\nMENOR: {:.2f}\n".format(max(lista), min(lista)))
 
 #ex 08
-def mais_barato():
+def ex8():
     a,b,c = (float(x) for x in input().split())
     lista = [a,b,c]
-    return print("O produto mais barato é o de valor {}".format(lista.min()))
+    return print("O produto mais barato é o de valor {:.2f}".format(min(lista)))
 
 #ex 09
-def decrescente():
+def ex9():
     a,b,c = (float(x) for x in input().split())
     lista = [a,b,c]
     lista.sort(reverse=True)
     return print(lista)
 
 #ex 10
-def turno():
+def ex10():
     print("""Em qual turno você estuda?
 M - matutino
 V - vespertino
@@ -94,7 +94,7 @@ N - noturno""")
         print("Valor Inválido".upper())
 
 #ex 11
-def tabajara():
+def ex11():
     salario = float(input())
     salario_anterior = salario
 
@@ -118,15 +118,15 @@ def tabajara():
     v = salario - salario_anterior
 
     return print("""
-    SALÁRIO ANTERIOR:{}:.2f
+    SALÁRIO ANTERIOR: {:.2f}
     COM AJUSTE SALARIAL DE {}
-    VALOR DO AUMENTO: {}:.2f
+    VALOR DO AUMENTO: {:.2f}
     
-    NOVO SALARIO: {}:.2f
+    NOVO SALARIO: {:.2f}
     """.format(salario_anterior, p, v, salario))
 
 #ex 12
-def folha_de_pgmt():
+def ex12():
     valor = float(input("Qual valor por hora?"))
     horas = int(input("Quantas horas trabalhadas?"))
     bruto = valor*horas
@@ -134,22 +134,90 @@ def folha_de_pgmt():
     fgts = 0.11 * bruto
     inss = 0.1*bruto
     if bruto <= 900:
-        ir = 0
+        ir = 0.0
     elif bruto <= 1500:
         ir = bruto * 0.05
     elif bruto <= 2500:
         ir = bruto * 0.1
     elif bruto > 2500:
         ir = bruto * 0.2
+    else:
+        ir = 0.0
 
-    totaldesc, liquido = (sindicato+inss+ir), (bruto - totaldesc)
+    totaldesc = (sindicato+inss + ir)
+    liquido = (bruto - totaldesc)
+
+
     p_ir = int((bruto / ir) * 100)
-    print("""
-    (+) SALARIO BRUTO: ({} * {}) = {}:.2f
-    (-) IR ({}%) : {}:.2f
-    (-) INSS (10%) : {}:.2f
-    (-) SINDICATO (3%) : {}:.2f
-    (-) FGTS (10%) : {}:.2f
-    (=) Total de descontos : {}:.2f
+    print("""(+) SALARIO BRUTO: ({:.2f} * {}) = {:.2f}
+    (-) IR ({}%) : {:.2f}
+    (-) INSS (10%) : {:.2f}
+    (-) SINDICATO (3%) : {:.2f}
+    (-) FGTS (10%) : {:.2f}
+    (=) Total de descontos : {:.2f}
     -------------------------------
-    SALÁRIO LÍQUIDO: {}:.2F""".format(valor, horas, bruto, p_ir, ir, inss, sindicato,fgts,totaldesc,liquido)
+    SALÁRIO LÍQUIDO: {:.2f}""".format(valor, horas, bruto, p_ir, ir, inss, sindicato,fgts,totaldesc,liquido))
+
+
+#ex 13
+def ex13():
+    dia = int(input())
+    if dia == 1:
+        return print("Domingo")
+    elif dia == 2:
+        return print("Segunda")
+    elif dia == 3:
+        return print("Terca")
+    elif dia == 4:
+        return print("Quarta")
+    elif dia == 5:
+        return print("Quinta")
+    elif dia == 6:
+        return print("Sexta")
+    elif dia == 7:
+        return print("Sabado")
+    else:
+        return print("VALOR INVALIDO")
+
+#ex 14
+def ex14():
+    n1 = float(input("Primeira Nota Parcial: "))
+    n2 = float(input("Segunda Nota Parcial: "))
+    media = (n1 + n2) / 2
+    if 0 <= media < 4:
+        conceito = 'E'
+    elif 4 <= media < 6:
+        conceito = 'D'
+    elif 6 <= media < 7.5:
+        conceito = 'C'
+    elif 7.5 <= media < 9:
+        conceito = 'B'
+    elif 9 <= media <= 10:
+        conceito = 'A'
+    else:
+        conceito = -1
+
+    if conceito in 'ABC':
+        return print("APROVADO com conceito {}!\nNota 01: {:.2f}\nNota 02:{:.2f}\nMedia: {:.2f}\n".format(conceito, n1, n2, media))
+    elif conceito in 'DE':
+        return print("REPROVADO com conceito {}!\nNota 01: {:.2f}\nNota 02:{:.2f}\nMedia: {:.2f}\n".format(conceito, n1, n2, media))
+    else:
+        return print("NOTAS INVALIDAS")
+
+
+#ex15
+def ex15():
+    l1, l2, l3 = (float(x) for x in input("Adicione os tres lados do triangulo:\n").split())
+    if (l1+l2) > l3 and (l2+l3) > l1 and (l1+l3)>l2:
+        #triangulo existe
+        if l1==l2==l3:
+            return print("O TRIANGULO É EQUILATERO")
+        elif l1==l2 or l1==l3 or l2==l3:
+            return print("O TRIANGULO É ISOSCELES")
+        elif l1!=l2!=l3:
+            return print("O TRIANGULO É ESCALENO")
+    else:
+        return print("OS LADOS NÃO SATISFAZEM A CONDIÇÃO DE EXISTENCIA DO TRIANGULO")
+
+#ex16
+def ex16():
