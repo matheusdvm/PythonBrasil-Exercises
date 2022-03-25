@@ -174,6 +174,10 @@ def ex11():
 
     print("A SOMA É: {}".format(soma))
 
+#ex 12:
+def ex12():
+    pass
+
 #ex 13:
 def ex13():
     pass
